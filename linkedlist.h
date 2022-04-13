@@ -22,24 +22,27 @@ class List
 	// int data;
 	Node* head_ref;
 	Node* end;
+	int len;
 
 	public :
 	List(int arg)
 	{
 		head_ref = new Node(arg);
 		end = NULL;
+		len =1;
 	}
 
 	List()
 	{
 		head_ref = NULL;
 		end = NULL;
+		len = 0;
 	}
 
 	void append(int arg)
 	{
 		Node* curr = head_ref;
-
+		len++;
 		if(head_ref == NULL)
 		{
 			head_ref = new Node(arg);
@@ -57,6 +60,7 @@ class List
 	void push(int arg)
 	{
 		Node* curr = head_ref;
+		len++;
 
 		Node* temp = new Node(arg);
 		temp->next = head_ref;
@@ -97,6 +101,11 @@ class List
 		return count;
 	}
 
+	int get_length()
+	{
+		return len;
+	}
+
 	int pop()
 	{
 		if(head_ref == NULL)
@@ -131,7 +140,7 @@ class List
 		if(head_ref == NULL)
 			return;
 
-		int len = this->length();
+		int len = this->get_length();
 
 		if(index > len)
 		{
@@ -145,6 +154,7 @@ class List
 		{
 			head_ref = head_ref->next;
 			delete current;
+			this->len--;
 			return;
 		}
 		int count = 0;
@@ -158,6 +168,7 @@ class List
 		}
 		previous->next = current->next;
 		delete current;
+		this->len--;
 	}
 };
 
