@@ -2,26 +2,19 @@
 #include "linkedlist.h"
 using namespace std;
 
+
+#define MyList List* 
+
 int main()
 {
 	
-	List* lst = new List(0);
-	List* lst2 = new List(0);
+	MyList lst = new List();
 
-	for(int i = 1 ; i <= 10 ;i++ )
+	range1(i,10,20)
 	{
 		lst->push(i);
 	}
 	lst->print();
 
-	for(int i = 1 ; i <= 10 ;i++ )
-	{
-		lst->print();
-		lst->erase(0);
-	}
-	lst->erase(0);
-	lst->print();
-	lst->erase(0);
-	lst->print();
 	return 0;
 }

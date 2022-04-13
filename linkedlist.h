@@ -1,6 +1,7 @@
 #ifndef  LINKEDLIST
 #define  LINKEDLIST
 
+#include "mydef.h"
 using namespace std;
 
 struct Node
@@ -26,6 +27,12 @@ class List
 	List(int arg)
 	{
 		head_ref = new Node(arg);
+		end = NULL;
+	}
+
+	List()
+	{
+		head_ref = NULL;
 		end = NULL;
 	}
 
