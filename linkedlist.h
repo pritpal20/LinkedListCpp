@@ -176,6 +176,7 @@ class List
 	int insert(int,int);
 };
 
+//O(n)	
 int List::insert(int index,int data)
 {
 	if(index > this->len)
