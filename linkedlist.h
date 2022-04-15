@@ -172,18 +172,47 @@ class List
 		this->len--;
 	}
 
+	// to insert data at the index;
 	int insert(int,int);
 };
 
 int List::insert(int index,int data)
 {
-	Node* temp = new Node()
+	if(index > this->len)
+	{
+		cout << "ERROR !! out of index " << endl;
+		return FAIL;
+	}
+	Node* temp = new Node(data);
 	if(head_ref == NULL)
 	{
 		head_ref = temp;
 		head_ref->next = NULL;
+		return SUCCESS;
 	}
+	int count = 0;
+	Node* previous = NULL;
+	Node* current = head_ref;
+	while(current != NULL)
+	{
+		if(index == count)
+			break;
+		previous = current;
+		current = current->next;
+		count++;
+	}
+	if(previous == NULL)
+	{
+		temp->next = current;
+		head_ref = temp;
+	}
+	else
+	{
+		previous->next = temp;
+		temp->next = current;
+	}
+	len++;
 
-	return 0;
+	return SUCCESS;
 }
 #endif
