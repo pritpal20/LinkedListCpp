@@ -1,5 +1,6 @@
 #include <iostream>
 #include "linkedlist.h"
+#include "mydef.h"
 using namespace std;
 
 int main()
@@ -8,7 +9,8 @@ int main()
 	List* lst = new List(0);
 	List* lst2 = new List(0);
 
-	for(int i = 1 ; i <= 10 ;i++ )
+	int i;
+	range1(i,1,10)
 	{
 		lst->append(i);
 		lst->push(i);

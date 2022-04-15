@@ -10,17 +10,13 @@ int main()
 	
 	MyList lst = new List();
 
-	range1(i,10,20)
+	int i;
+	range1(i,100,110)
 	{
 		lst->push(i);
 	}
 	lst->print();
-
-	lst->erase(1);
-
-	lst->print();
-	
 	cout << "Lenght of list is " << lst->get_length() << endl;
 
-	return 0;
+	return SUCCESS;
 }
