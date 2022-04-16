@@ -17,5 +17,10 @@ int main()
 	}
 	lst->print();
 	cout << "Lenght of list is " << lst->get_length() << endl;
+
+	lst->clear();
+
+	lst->print();
+	cout << "Lenght of list is " << lst->get_length() << endl;
 	return SUCCESS;
 }

@@ -174,6 +174,8 @@ class List
 
 	// to insert data at the index;
 	int insert(int,int);
+
+	void clear();
 };
 
 //O(n)	
@@ -216,4 +218,16 @@ int List::insert(int index,int data)
 
 	return SUCCESS;
 }
+
+void List::clear()
+{
+	while(this->len > 0 )
+	{
+		this->erase(0);
+	}
+
+	return;
+}
+
+
 #endif
