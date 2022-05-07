@@ -67,23 +67,64 @@ class List
 		head_ref = temp;
 	}
 
-	void print()
+	// void print()
+	// {
+	// 	Node* current = head_ref;
+
+	// 	if(current == NULL)
+	// 	{
+	// 		printf("[]\n");
+	// 		return;
+	// 	}
+
+	// 	printf("[");
+	// 	while(current->next != NULL)
+	// 	{
+	// 		printf("%d,",current->data);
+	// 		current = current->next;
+	// 	}
+	// 	printf("%d]\n",current->data);
+	// }
+
+	void print(bool reverse = false)
 	{
+		cout << "[" ;
+
+		if (reverse == false)
+			print_(head_ref);
+		else
+			print_reverse(head_ref);
+		cout << "] " ;
+	}
+
+	void print_(Node* head_ref)
+	{
+
+		if(head_ref == NULL)
+			return;
+
 		Node* current = head_ref;
 
-		if(current == NULL)
-		{
-			printf("[]\n");
-			return;
-		}
+		cout << current->data ;
 
-		printf("[");
-		while(current->next != NULL)
-		{
-			printf("%d,",current->data);
-			current = current->next;
-		}
-		printf("%d]\n",current->data);
+		if (current->next != NULL)
+			cout << "," ;
+
+		print_(current->next);
+	}
+
+	void print_reverse(Node* head_ref)
+	{
+
+		if(head_ref == NULL)
+			return;
+
+		Node* current = head_ref;
+		print_reverse(head_ref->next);
+
+		cout << head_ref->data ;
+		if (head_ref != this->head_ref)
+			cout << "," ;
 	}
 
 	int length()
@@ -228,6 +269,8 @@ void List::clear()
 
 	return;
 }
+
+// node* reverse(node** head_ref)
 
 
 #endif
