@@ -9,7 +9,7 @@ int main()
 	List* lst = new List(0);
 	List* lst2 = new List(0);
 
-	for(int i = 1 ; i <= 1 ;i++ )
+	for(int i = 1 ; i <= 10 ;i++ )
 	{
 		lst->append(i);
 	}
@@ -22,10 +22,10 @@ int main()
 	}
 	lst2->print();
 
-	Node *current = lst->get_headref();
-	Node *temp = lst2->get_headref();
+	Node *list1 = lst->get_headref();
+	Node *list2 = lst2->get_headref();
 
-	if ( compare_lists(current,temp) )
+	if ( compare_lists(list1,list2) )
 	{
 		cout << "\nList are equal" << endl;
 	}

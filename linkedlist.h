@@ -94,7 +94,7 @@ class List
 			print_(head_ref);
 		else
 			print_reverse(head_ref);
-		cout << "] " ;
+		cout << "] " << endl; ;
 	}
 
 	void print_(Node* head_ref)
@@ -217,6 +217,8 @@ class List
 	int insert(int,int);
 
 	void clear();
+	void reverse();
+	Node* reverse_(Node*);
 };
 
 //O(n)	
@@ -270,7 +272,31 @@ void List::clear()
 	return;
 }
 
-// node* reverse(node** head_ref)
+void List :: reverse()
+{
+
+	this->head_ref = reverse_(this->head_ref);
+}
+// 1->2->3->NULL
+// reverse(1)
+// 		reverse(2)
+// 			reverse(3) this will return and assigned to head
+//				returns 3
+Node* List :: reverse_(Node* head_ref)
+{
+	if (head_ref == NULL || head_ref->next == NULL)
+		return head_ref;
+
+	Node* res = reverse_(head_ref->next);
+
+	//cout << "inside re  " <<head_ref->data <<" ," <<head_ref->next->data  << endl;
+
+	head_ref->next->next = head_ref;
+
+    head_ref->next = NULL;
+
+	return res;
+}
 
 
 #endif

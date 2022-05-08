@@ -16,9 +16,15 @@ int main()
 		lst->push(i);
 	}
 	lst->print();
-	cout << endl;
-	bool reverse = true;
-	lst->print(reverse);
+	bool reversed = false;
+	cout << "Reverse list " << endl;
+	lst->print(reversed);
 	cout << "Lenght of list is " << lst->get_length() << endl;
+
+	lst->reverse();
+
+	lst->print(reversed);
+
+
 	return SUCCESS;
 }
