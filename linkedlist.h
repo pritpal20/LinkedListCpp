@@ -67,24 +67,24 @@ class List
 		head_ref = temp;
 	}
 
-	// void print()
-	// {
-	// 	Node* current = head_ref;
+	void print_nonrecur()
+	{
+		Node* current = head_ref;
 
-	// 	if(current == NULL)
-	// 	{
-	// 		printf("[]\n");
-	// 		return;
-	// 	}
+		if(current == NULL)
+		{
+			printf("[]\n");
+			return;
+		}
 
-	// 	printf("[");
-	// 	while(current->next != NULL)
-	// 	{
-	// 		printf("%d,",current->data);
-	// 		current = current->next;
-	// 	}
-	// 	printf("%d]\n",current->data);
-	// }
+		printf("[");
+		while(current->next != NULL)
+		{
+			printf("%d,",current->data);
+			current = current->next;
+		}
+		printf("%d]\n",current->data);
+	}
 
 	void print(bool reverse = false)
 	{
@@ -103,14 +103,12 @@ class List
 		if(head_ref == NULL)
 			return;
 
-		Node* current = head_ref;
+		cout << head_ref->data ;
 
-		cout << current->data ;
-
-		if (current->next != NULL)
+		if (head_ref->next != NULL)
 			cout << "," ;
 
-		print_(current->next);
+		print_(head_ref->next);
 	}
 
 	void print_reverse(Node* head_ref)
@@ -119,10 +117,13 @@ class List
 		if(head_ref == NULL)
 			return;
 
-		Node* current = head_ref;
 		print_reverse(head_ref->next);
 
 		cout << head_ref->data ;
+
+		/*No comma after the list reaches the head node
+		 remove the if condition and check the effect*/
+
 		if (head_ref != this->head_ref)
 			cout << "," ;
 	}
